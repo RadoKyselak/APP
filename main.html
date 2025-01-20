@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Boy - Quality Score</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .header {
+            background-color: #87CEFA;
+            color: #fff;
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .title {
+            font-size: 25px;
+            font-weight: bold;
+        }
+        .settings-icon {
+            font-size: 30px;
+            cursor: pointer;
+        }
+        .date-selector {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            background-color: #e7f4fc;
+            padding: 10px 6px;
+            border-radius: 16px;
+            margin: 16px auto;
+            max-width: 90%;
+        }
+        .date-tile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.2s, box-shadow 0.2s;
+        }
+        .date-tile:hover {
+            background-color: #d9ecff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+        .date-tile.selected {
+            background-color: #4fa4ff;
+            color: #fff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+        .date {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .day {
+            font-size: 14px;
+            color: #666;
+        }
+        .selected .day {
+            color: #fff;
+        }
+        .content {
+            padding: 20px;
+        }
+        .river-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        .info-card {
+            background-color: #E3F2FD;
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        .status-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .warning-text {
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #D32F2F;
+            text-align: center;
+        }
+        .details {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        .map {
+            width: 100%;
+            height: 300px;
+            margin-top: 16px;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h2 class="title">Water Boy Alpha</h2>
+            <span class="settings-icon" aria-label="Settings">⚙️</span>
+        </header>
+
+        <div class="date-selector" id="dateSelector">
+            <div class="date-tile" data-date="May 23">
+                <span class="date">May 23</span>
+                <span class="day">Fri</span>
+            </div>
+            <div class="date-tile" data-date="May 24">
+                <span class="date">May 24</span>
+                <span class="day">Sat</span>
+            </div>
+            <div class="date-tile selected" data-date="May 25">
+                <span class="date">May 25</span>
+                <span class="day">Sun</span>
+            </div>
+            <div class="date-tile" data-date="May 26">
+                <span class="date">May 26</span>
+                <span class="day">Mon</span>
+            </div>
+            <div class="date-tile" data-date="May 27">
+                <span class="date">May 27</span>
+                <span class="day">Tue</span>
+            </div>
+        </div>
+
+        <div class="content">
+            <img src="https://t4.ftcdn.net/jpg/02/64/37/27/360_F_264372728_XcitAOuhMrDjKw1Gk3fxalmcxvzkacBx.jpg" alt="Yangtze River" class="river-image">
+
+            <div class="info-card">
+                <h2 class="section-title">The Yangtze River - Wuhan</h2>
+                <div class="status-row">
+                    <span class="warning-text">⚠️Unsafe</span>
+                </div>
+                <p class="details"><strong>🔬Microplastics:</strong> 1.5 million tons of microplastic</p>
+                <p class="details"><strong>🧪pH Levels:</strong> Ranges between 6.5 and 8.5 in monitored zones</p>
+                <p class="details"><strong>🧫BOD (Biochemical Oxygen Demand):</strong> High in Wuhan (Urban Area)</p>
+                <p class="details"><strong>🎚️Nitrate Levels:</strong> Elevated due to agricultural runoff</p>
+                <p class="details"><strong>🏭Heavy Metals:</strong> Chromium and cadmium levels exceed safe limits</p>
+            </div>
+        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d342736.22825062456!2d114.05028934241641!3d30.58590571178324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3709e8b24ff5d9c1%3A0x20e9c206f93a589!2sYangtze%20River!5e0!3m2!1sen!2sus!4v1677164736612!5m2!1sen!2sus" allowfullscreen></iframe>
+        <script>
+        const dateSelector = document.getElementById('dateSelector');
+        dateSelector.addEventListener('click', (event) => {
+            const targetTile = event.target.closest('.date-tile');
+            if (targetTile) {
+                document.querySelectorAll('.date-tile').forEach(tile => tile.classList.remove('selected'));
+                targetTile.classList.add('selected');
+                // Update content dynamically here
+                const selectedDate = targetTile.getAttribute('data-date');
+                console.log(`Selected date: ${selectedDate}`);
+                // Fetch and update water quality data based on the selected date
+            	}
+        	});
+    	</script>
+        </div>
+        
+    </div>
+</body>
+</html>
