@@ -129,25 +129,25 @@
         </header>
 
         <div class="date-selector" id="dateSelector">
-            <div class="date-tile" data-date="May 23">
-                <span class="date">May 23</span>
-                <span class="day">Fri</span>
-            </div>
-            <div class="date-tile" data-date="May 24">
-                <span class="date">May 24</span>
-                <span class="day">Sat</span>
-            </div>
-            <div class="date-tile selected" data-date="May 25">
-                <span class="date">May 25</span>
-                <span class="day">Sun</span>
-            </div>
-            <div class="date-tile" data-date="May 26">
-                <span class="date">May 26</span>
+            <div class="date-tile" data-date="2025-01-20">
+                <span class="date">Jan 20</span>
                 <span class="day">Mon</span>
             </div>
-            <div class="date-tile" data-date="May 27">
-                <span class="date">May 27</span>
+            <div class="date-tile" data-date="2025-01-21">
+                <span class="date">Jan 21</span>
                 <span class="day">Tue</span>
+            </div>
+            <div class="date-tile selected" data-date="2025-01-22">
+                <span class="date">Jan 22</span>
+                <span class="day">Wed</span>
+            </div>
+            <div class="date-tile" data-date="2025-01-23">
+                <span class="date">Jan 23</span>
+                <span class="day">Thu</span>
+            </div>
+            <div class="date-tile" data-date="2025-01-24">
+                <span class="date">Jan 24</span>
+                <span class="day">Fri</span>
             </div>
         </div>
 
@@ -173,13 +173,13 @@
             if (targetTile) {
                 document.querySelectorAll('.date-tile').forEach(tile => tile.classList.remove('selected'));
                 targetTile.classList.add('selected');
-                // Update content dynamically here
+                
                 const selectedDate = targetTile.getAttribute('data-date');
                 console.log(`Selected date: ${selectedDate}`);
-                // Fetch and update water quality data based on the selected date
-            	}
-        	});
-    	</script>
+                
+                }
+            });
+        </script>
         </div>
         
     </div>
