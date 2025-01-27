@@ -146,8 +146,11 @@
                 <p class="details"><strong>🎚️Nitrate Levels:</strong> Elevated due to agricultural runoff</p>
                 <p class="details"><strong>🏭Heavy Metals:</strong> Chromium and cadmium levels exceed safe limits</p>
             </div>
-        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d342736.22825062456!2d114.05028934241641!3d30.58590571178324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2![...]
-        <script>
+            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d342736.22825062456!2d114.05028934241641!3d30.58590571178324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x342ea4e2c5f71547%3A0xf0f45e5b8a0d6b0!2sYangtze%20River!5e0!3m2!1sen!2sus!4v1617284011689!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
         const dateSelector = document.getElementById('dateSelector');
 
         const generateDateTiles = () => {
@@ -184,18 +187,14 @@
             if (targetTile) {
                 document.querySelectorAll('.date-tile').forEach(tile => tile.classList.remove('selected'));
                 targetTile.classList.add('selected');
-                
+
                 const selectedDate = targetTile.getAttribute('data-date');
                 console.log(`Selected date: ${selectedDate}`);
-                
             }
         });
 
-        // Generate date tiles on page load
         generateDateTiles();
-        </script>
-        </div>
-        
-    </div>
+    });
+    </script>
 </body>
 </html>
