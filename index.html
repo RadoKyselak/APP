@@ -129,26 +129,7 @@
         </header>
 
         <div class="date-selector" id="dateSelector">
-            <div class="date-tile" data-date="2025-01-20">
-                <span class="date">Jan 20</span>
-                <span class="day">Mon</span>
-            </div>
-            <div class="date-tile" data-date="2025-01-21">
-                <span class="date">Jan 21</span>
-                <span class="day">Tue</span>
-            </div>
-            <div class="date-tile selected" data-date="2025-01-22">
-                <span class="date">Jan 22</span>
-                <span class="day">Wed</span>
-            </div>
-            <div class="date-tile" data-date="2025-01-23">
-                <span class="date">Jan 23</span>
-                <span class="day">Thu</span>
-            </div>
-            <div class="date-tile" data-date="2025-01-24">
-                <span class="date">Jan 24</span>
-                <span class="day">Fri</span>
-            </div>
+            <!-- Date tiles will be dynamically generated here -->
         </div>
 
         <div class="content">
@@ -165,9 +146,39 @@
                 <p class="details"><strong>🎚️Nitrate Levels:</strong> Elevated due to agricultural runoff</p>
                 <p class="details"><strong>🏭Heavy Metals:</strong> Chromium and cadmium levels exceed safe limits</p>
             </div>
-        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d342736.22825062456!2d114.05028934241641!3d30.58590571178324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3709e8b24ff5d9c1%3A0x20e9c206f93a589!2sYangtze%20River!5e0!3m2!1sen!2sus!4v1677164736612!5m2!1sen!2sus" allowfullscreen></iframe>
+        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d342736.22825062456!2d114.05028934241641!3d30.58590571178324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2![...]
         <script>
         const dateSelector = document.getElementById('dateSelector');
+
+        const generateDateTiles = () => {
+            const today = new Date();
+            const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            for (let i = 0; i < 5; i++) {
+                const date = new Date(today);
+                date.setDate(today.getDate() + i);
+                const dayOfWeek = daysOfWeek[date.getDay()];
+                const month = date.toLocaleString('default', { month: 'short' });
+                const day = date.getDate();
+
+                const tile = document.createElement('div');
+                tile.classList.add('date-tile');
+                if (i === 0) tile.classList.add('selected');
+                tile.setAttribute('data-date', date.toISOString().split('T')[0]);
+
+                const dateSpan = document.createElement('span');
+                dateSpan.classList.add('date');
+                dateSpan.textContent = `${month} ${day}`;
+
+                const daySpan = document.createElement('span');
+                daySpan.classList.add('day');
+                daySpan.textContent = dayOfWeek;
+
+                tile.appendChild(dateSpan);
+                tile.appendChild(daySpan);
+                dateSelector.appendChild(tile);
+            }
+        };
+
         dateSelector.addEventListener('click', (event) => {
             const targetTile = event.target.closest('.date-tile');
             if (targetTile) {
@@ -177,8 +188,11 @@
                 const selectedDate = targetTile.getAttribute('data-date');
                 console.log(`Selected date: ${selectedDate}`);
                 
-                }
-            });
+            }
+        });
+
+        // Generate date tiles on page load
+        generateDateTiles();
         </script>
         </div>
         
